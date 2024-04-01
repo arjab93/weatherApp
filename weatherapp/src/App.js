@@ -1,32 +1,52 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import MainSection from './components/mainSection';
 const App = () => {
+  //const [state, setState] = useState(null)
   const [weatherData, setWeatherData] = useState(null);
+  const [location, setLocation] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  const fetchData = async() => {
+  const fetchData = async () => {
+    const apiKey = "a94a86e0e3f1413e1bf87c2adf765015";
     try {
-      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=a94a86e0e3f1413e1bf87c2adf765015`);
+      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`);
       setWeatherData(res.data);
+      setSubmitted(true);
       console.log(res.data);
     } catch (error) {
       console.log("Error fetching the data.");
     }
   }
 
-  useEffect(() => {
-    fetchData();
-  },[]);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
-    <div>
-      {weatherData ? (
-        <div classname="">
-          <li>Pressure: {weatherData.main.pressure} atm</li>
-          <li>Temperature: {weatherData.main.temp} &deg;K</li>
-        </div>
-      ): (
-        <p>Loading Data</p>
-      )}
+    // <div>
+    //   {weatherData ? (
+    //     <div classname="">
+    //       <li>Pressure: {weatherData.main.pressure} atm</li>
+    //       <li>Temperature: {weatherData.main.temp} &deg;K</li>
+    //     </div>
+    //   ): (
+    //     <p>Loading Data</p>
+    //   )}
+    // </div>
+    <div className='h-screen bg-[#141316] font-Changa flex flex-col justify-center items-center'>
+      <div className="mb-3 w-[500px] text-[25px] font-changa flex justify-between items-center">
+        <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} className='px-4 py-3 w-[70%] outline-none border-none rounded-md' />
+        <button type='submit' className='py-3 bg-blue-500 text-white font-changa w-[28%] outline-none border-none rounded-md' onClick={() => fetchData()}>SUBMIT</button>
+      </div>
+      {submitted ? (
+        location ? (
+          <MainSection place={location} data={weatherData} />
+        ) : (
+          <p className='text-red-400'><sup>*</sup>Please Enter your location</p>
+        )
+      ) : null}
+
     </div>
   )
 }
