@@ -6,7 +6,7 @@ const lowerSection = ({ status, pressure, humidity, windSpeed }) => {
       {/* weather status  */}
       <div className="w-[380px] text-[30px] border-2 text-center rounded-xl">
         {/* weather status value  */}
-        {status}
+        {status.toUpperCase()}
       </div>
       {/* pressure, humidity, speed  */}
       <div className="pb-2 w-[380px] mt-3 bg-white rounded-xl text-black flex justify-center items-center">

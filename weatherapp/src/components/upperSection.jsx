@@ -10,7 +10,7 @@ const upperSection = ({ place, temp }) => {
     <div className='flex flex-col justify-center items-center'>
       {/* place */}
       <div className="text-[70px]">
-        {place}
+        {place.toUpperCase()}
       </div>
       {/* temp */}
       <div className='text-[180px] my-[-80px] mb-[-70px]'>
