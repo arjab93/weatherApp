@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import MainSection from './components/mainSection';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const App = () => {
   //const [state, setState] = useState(null)
