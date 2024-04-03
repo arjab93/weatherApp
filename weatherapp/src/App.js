@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import MainSection from './components/mainSection';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const App = () => {
   //const [state, setState] = useState(null)
   const [weatherData, setWeatherData] = useState(null);
@@ -8,7 +12,7 @@ const App = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const fetchData = async () => {
-    const apiKey = "a94a86e0e3f1413e1bf87c2adf765015";
+    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
     try {
       const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`);
       setWeatherData(res.data);
