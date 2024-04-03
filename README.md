@@ -10,6 +10,13 @@ WeatherApp is a React application that displays current weather information for 
 - User-friendly Interface
 - Location Search
 
+## Technologies Used
+- React
+- React Hooks
+- Axios
+- Weather API (OpenWeatherMap)
+- CSS (Tailwind CSS)
+
 ## Installation
 
 To run the WeatherApp locally, follow these steps:
@@ -36,11 +43,5 @@ To run the WeatherApp locally, follow these steps:
 ```
 The application should now be running on http://localhost:3000.
 
-## Technologies Used
-- React
-- React Hooks
-- Axios
-- Weather API (OpenWeatherMap)
-- CSS (Tailwind CSS)
 
 
