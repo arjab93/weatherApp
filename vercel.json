@@ -1,5 +1,0 @@
-{
-    "rootDir": "weatherapp",
-    "buildCommand": "cd weatherapp && npm install && npm run build",
-    "outputDirectory": "weatherapp/build"
-  }
